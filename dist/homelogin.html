@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Login</title>
+    <link rel="stylesheet" href="homelogin.css">
+    <script>
+        function showLoginForm() {
+            const role = document.querySelector('input[name="role"]:checked').value;
+            const studentForm = document.getElementById("studentForm");
+            const facultyForm = document.getElementById("facultyForm");
+            if (role === "student") {
+                studentForm.style.display = "flex";
+                facultyForm.style.display = "none";
+            } else {
+                studentForm.style.display = "none";
+                facultyForm.style.display = "flex";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        <h1>NATIONAL FORENSIC SCIENCE UNIVERSITY</h1>
+        <h2>Dharwad Campus, Karnataka 580011</h2>
+    </div>
+
+    <div class="form-container">
+        <h3>Login</h3>
+        <form action="submit" method="post">
+            <!-- Role Selection -->
+            <div class="role-selection">
+                <label>Login as:</label>
+                <input type="radio" name="role" value="student" onclick="showLoginForm()" required>
+                <label for="student">Student</label>
+                <input type="radio" name="role" value="faculty" onclick="showLoginForm()" required>
+                <label for="faculty">Faculty</label>
+            </div>
+
+            <!-- Student Form -->
+            <div id="studentForm" class="login-form" style="display: none;">
+                <label for="enroll">Enrollment Number:</label>
+                <input type="text" id="enroll" name="enroll" placeholder="Enter Enrollment Number" required>
+
+                <label for="studentPassword">Password:</label>
+                <input type="password" id="studentPassword" name="studentPassword" required>
+            </div>
+
+            <!-- Faculty Form -->
+            <div id="facultyForm" class="login-form" style="display: none;">
+                <label for="facultyID">Faculty ID Number:</label>
+                <input type="text" id="facultyID" name="facultyID" placeholder="Enter Faculty ID Number" required>
+
+                <label for="facultyPassword">Password:</label>
+                <input type="password" id="facultyPassword" name="facultyPassword" required>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>
