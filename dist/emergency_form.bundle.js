@@ -63,6 +63,17 @@ eval("/*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org
 
 /***/ }),
 
+/***/ "./src/emergency_form.js":
+/*!*******************************!*\
+  !*** ./src/emergency_form.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! firebase/app */ \"./node_modules/firebase/app/dist/esm/index.esm.js\");\n/* harmony import */ var firebase_firestore__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! firebase/firestore */ \"./node_modules/firebase/firestore/dist/esm/index.esm.js\");\n/* harmony import */ var _firebase_config_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./firebase-config.js */ \"./src/firebase-config.js\");\n\r\n\r\n\r\n\r\n\r\n//init firebase\r\n(0,firebase_app__WEBPACK_IMPORTED_MODULE_0__.initializeApp)(_firebase_config_js__WEBPACK_IMPORTED_MODULE_2__.firebaseConfig)\r\n\r\n// init services\r\nconst db = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.getFirestore)()\r\n\r\n// collection ref\r\nconst colRef_requests = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.collection)(db,'requests')\r\n\r\n\r\nconst emergencyRequestForm = document.querySelector('.emergency-form')\r\nconsole.log(emergencyRequestForm)\r\nemergencyRequestForm.addEventListener('submit', (e) => {\r\n    e.preventDefault()\r\n\r\n    ;(0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.addDoc)(colRef_requests, {\r\n        name: document.getElementById('name').value,\r\n        reason: document.getElementById('reason').value,\r\n        leaveDateTime: document.getElementById('leaveDate').value,\r\n        // returnDateTime: document.getElementById('returnDate').value,\r\n        remarks: document.getElementById('remarks').value, \r\n        hostel: document.getElementById('hostel').value,\r\n        appartment: document.getElementById('appartment').value,\r\n        emergency: true,\r\n        status: \"approved\",\r\n        stud_id: \"studdoc.id\",\r\n        app_date: \"\"\r\n    })\r\n    emergencyRequestForm.reset()\r\n})\n\n//# sourceURL=webpack://outpass/./src/emergency_form.js?");
+
+/***/ }),
+
 /***/ "./src/firebase-config.js":
 /*!********************************!*\
   !*** ./src/firebase-config.js ***!
@@ -71,17 +82,6 @@ eval("/*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   firebaseConfig: () => (/* binding */ firebaseConfig)\n/* harmony export */ });\n// Firebase configuration only\r\nconst firebaseConfig = {\r\n    apiKey: \"AIzaSyDfNO-FtO428UCS8ujMAXk0CD95qXOlFzc\",\r\n    authDomain: \"out-pass-61ee5.firebaseapp.com\",\r\n    databaseURL: \"https://out-pass-61ee5-default-rtdb.firebaseio.com\",\r\n    projectId: \"out-pass-61ee5\",\r\n    storageBucket: \"out-pass-61ee5.appspot.com\",\r\n    messagingSenderId: \"775161528345\",\r\n    appId: \"1:775161528345:web:c1be1f72458af0f2946a88\",\r\n    measurementId: \"G-9P7X8F8KPF\"\r\n  };\r\n  \n\n//# sourceURL=webpack://outpass/./src/firebase-config.js?");
-
-/***/ }),
-
-/***/ "./src/student_dashboard.js":
-/*!**********************************!*\
-  !*** ./src/student_dashboard.js ***!
-  \**********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! firebase/app */ \"./node_modules/firebase/app/dist/esm/index.esm.js\");\n/* harmony import */ var firebase_firestore__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! firebase/firestore */ \"./node_modules/firebase/firestore/dist/esm/index.esm.js\");\n/* harmony import */ var _firebase_config_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./firebase-config.js */ \"./src/firebase-config.js\");\n\r\n\r\n\r\n//init firebase\r\n(0,firebase_app__WEBPACK_IMPORTED_MODULE_0__.initializeApp)(_firebase_config_js__WEBPACK_IMPORTED_MODULE_2__.firebaseConfig)\r\n\r\n// init services\r\nconst db = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.getFirestore)()\r\n\r\n// collection ref\r\nconst colRef_requests = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.collection)(db,'requests')\r\n\r\n// count pending\r\n\r\n\r\n// get collection data\r\n// getDocs(colRef_requests)\r\n//     .then(snapshot => {\r\n//         let requests = []\r\n//         console.log(snapshot)\r\n//         snapshot.docs.forEach((doc) => {\r\n//             requests.push({...doc.data(), id: doc.id })\r\n//         })\r\n//         console.log(requests)\r\n//         requests.forEach((e) => {\r\n//             if (e[\"status\"] === \"pending\"){\r\n//                 cnt_pend+= 1\r\n//                 document.getElementById('cnt-pending').innerText = cnt_pend\r\n//             }\r\n//             else if (e[\"status\"] === \"approved\"){\r\n//                 cnt_app+= 1\r\n//                 document.getElementById('cnt-approved').innerText = cnt_app\r\n                \r\n//             }\r\n//             else if(e[\"status\"] === \"rejected\"){\r\n//                 cnt_rej+= 1\r\n//                 document.getElementById('cnt-rejected').innerText = cnt_rej\r\n//             }\r\n//         })\r\n//     })\r\n//     .catch(err => {\r\n//         console.log(err.message)\r\n//     })\r\n\r\n;(0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.onSnapshot)(colRef_requests,(snapshot) => {\r\n    var cnt_pend = 0\r\n    var cnt_app  = 0\r\n    var cnt_rej = 0\r\n\r\n    let requests = []\r\n    console.log(snapshot)\r\n    snapshot.docs.forEach((doc) => {\r\n        requests.push({...doc.data(), id: doc.id })\r\n    })\r\n    console.log(requests)\r\n    requests.forEach((e) => {\r\n        if (e[\"status\"] === \"pending\"){\r\n            cnt_pend+= 1\r\n            document.getElementById('cnt-pending').innerText = cnt_pend\r\n        }\r\n        else if (e[\"status\"] === \"approved\"){\r\n            cnt_app+= 1\r\n            document.getElementById('cnt-approved').innerText = cnt_app\r\n            \r\n        }\r\n        else if(e[\"status\"] === \"rejected\"){\r\n            cnt_rej+= 1\r\n            document.getElementById('cnt-rejected').innerText = cnt_rej\r\n        }\r\n    })\r\n})\r\n\r\n\r\n\r\n\n\n//# sourceURL=webpack://outpass/./src/student_dashboard.js?");
 
 /***/ }),
 
@@ -256,7 +256,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/student_dashboard.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/emergency_form.js");
 /******/ 	
 /******/ })()
 ;

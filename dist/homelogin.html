@@ -19,6 +19,8 @@
             }
         }
     </script>
+
+
 </head>
 <body>
     <div class="header">
@@ -40,25 +42,31 @@
 
             <!-- Student Form -->
             <div id="studentForm" class="login-form" style="display: none;">
-                <label for="enroll">Enrollment Number:</label>
-                <input type="text" id="enroll" name="enroll" placeholder="Enter Enrollment Number" required>
+                <label for="email">Email id:</label>
+                <input type="text" id="email1" name="email" placeholder="Enter your Email" required>
 
-                <label for="studentPassword">Password:</label>
-                <input type="password" id="studentPassword" name="studentPassword" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password1" name="password" required>
+                <button type="button" id="rand">Login</button>
             </div>
 
             <!-- Faculty Form -->
             <div id="facultyForm" class="login-form" style="display: none;">
-                <label for="facultyID">Faculty ID Number:</label>
-                <input type="text" id="facultyID" name="facultyID" placeholder="Enter Faculty ID Number" required>
+                <label for="facultyMail">Faculty Mail id:</label>
+                <input type="text" id="facultyMail" name="facultyMail" placeholder="Enter Faculty Mail id" required>
 
                 <label for="facultyPassword">Password:</label>
                 <input type="password" id="facultyPassword" name="facultyPassword" required>
+                <button type="button" id="rand1">Login</button>
             </div>
 
             <!-- Submit Button -->
-            <button type="submit">Login</button>
+            
         </form>
     </div>
+    <!-- Add Firebase SDKs in the head section of your HTML file -->
+<script  src="firebase_config.bundle.js"></script>
+<script  src="login.bundle.js"></script>
+<script  src="faclogin.bundle.js"></script>
 </body>
 </html>

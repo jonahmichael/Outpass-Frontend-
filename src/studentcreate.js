@@ -3,19 +3,10 @@ import {
 } from 'firebase/app'
 import {
     getFirestore,collection,getDocs,
-    addDoc,
+    addDoc,onSnapshot,
+    query,where,
 } from 'firebase/firestore'
-const firebaseConfig = {
-    apiKey: "AIzaSyBNv1ehBbnU0qc8_gz_Yog2iTQxJ8k3I9g",
-    authDomain: "exitease-8fc92.firebaseapp.com",
-    databaseURL: "https://exitease-8fc92-default-rtdb.firebaseio.com",
-    projectId: "exitease-8fc92",
-    storageBucket: "exitease-8fc92.firebasestorage.app",
-    messagingSenderId: "639228933337",
-    appId: "1:639228933337:web:cfe5d6a353bf38f0363ac8",
-    measurementId: "G-QK8ZW2P3H1"
-};
-
+import { firebaseConfig } from "./firebase-config.js";
 //init firebase
 initializeApp(firebaseConfig)
 
@@ -23,7 +14,7 @@ initializeApp(firebaseConfig)
 const db = getFirestore()
 
 // collection ref
-const colRef_requests = collection(db,'users')
+const colRef_users = collection(db,'users')
 
 // Redirect page
 function handleSubmit(event) {
@@ -40,7 +31,7 @@ const addForm = document.querySelector('.addDoc')
 addForm.addEventListener('submit', (e) => {
     e.preventDefault()
 
-    addDoc(colRef_requests, {
+    addDoc(colRef_users, {
         name: addForm.name.value,
         gender: addForm.gender.value,
         hostel_no: addForm.hostel.value,

@@ -9,6 +9,13 @@ module.exports = {
         student_create: './src/studentcreate.js',
         faculty_create: './src/faculty_create.js',
         leave_form: './src/leave_form.js',
+        emergency_form: './src/emergency_form.js',
+        firebase_config: './src/firebase-config.js',
+        login: './src/login.js',
+        faclogin: './src/faclogin.js',
+        facsignup: './src/facsignup.js',
+        signup: './src/signup.js',
+
     },
     output: {
         path: path.resolve(__dirname,'dist'),

@@ -5,16 +5,7 @@ import {
     getFirestore,collection,getDocs,
     addDoc,
 } from 'firebase/firestore'
-const firebaseConfig = {
-    apiKey: "AIzaSyBNv1ehBbnU0qc8_gz_Yog2iTQxJ8k3I9g",
-    authDomain: "exitease-8fc92.firebaseapp.com",
-    databaseURL: "https://exitease-8fc92-default-rtdb.firebaseio.com",
-    projectId: "exitease-8fc92",
-    storageBucket: "exitease-8fc92.firebasestorage.app",
-    messagingSenderId: "639228933337",
-    appId: "1:639228933337:web:cfe5d6a353bf38f0363ac8",
-    measurementId: "G-QK8ZW2P3H1"
-};
+import { firebaseConfig } from "./firebase-config.js";
 
 //init firebase
 initializeApp(firebaseConfig)
@@ -63,21 +54,24 @@ addRequestForm.addEventListener('submit', (e) => {
     e.preventDefault()
 
     addDoc(colRef_requests, {
+        name: document.getElementById('name').value,
         location: document.getElementById('address').value,
         reason: document.getElementById('reason').value,
         leaveDateTime: document.getElementById('leaveDate').value,
         returnDateTime: document.getElementById('returnDate').value,
         remarks: document.getElementById('remarks').value, 
+        hostel: document.getElementById('hostel').value,
+        appartment: document.getElementById('appartment').value,
         emergency: false,
         status: "pending",
         stud_id: "studdoc.id",
         app_date: ""
     })
-    .then(() => {
-        addRequestForm.reset()
-        submitForm(e)
+    addRequestForm.reset()
+    // submitForm(e)
+    // window.location.href = "studashboard.html";
 
-    })
 
 
 })
+
