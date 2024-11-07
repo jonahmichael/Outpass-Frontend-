@@ -18,10 +18,20 @@
                 facultyForm.style.display = "flex";
             }
         }
+
+        function togglePassword(passwordId) {
+            const passwordField = document.getElementById(passwordId);
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+            } else {
+                passwordField.type = "password";
+            }
+        }
     </script>
 </head>
 <body>
     <div class="header">
+        <img src="nfsulogo.png" alt="NFSU Logo" class="logo">
         <h1>NATIONAL FORENSIC SCIENCE UNIVERSITY</h1>
         <h2>Dharwad Campus, Karnataka 580011</h2>
     </div>
@@ -44,7 +54,10 @@
                 <input type="text" id="enroll" name="enroll" placeholder="Enter Enrollment Number" required>
 
                 <label for="studentPassword">Password:</label>
-                <input type="password" id="studentPassword" name="studentPassword" required>
+                <div class="password-wrapper">
+                    <input type="password" id="studentPassword" name="studentPassword" required>
+                    <img src="eye.png" alt="Show Password" class="eye-icon" onclick="togglePassword('studentPassword')">
+                </div>
             </div>
 
             <!-- Faculty Form -->
@@ -53,7 +66,10 @@
                 <input type="text" id="facultyID" name="facultyID" placeholder="Enter Faculty ID Number" required>
 
                 <label for="facultyPassword">Password:</label>
-                <input type="password" id="facultyPassword" name="facultyPassword" required>
+                <div class="password-wrapper">
+                    <input type="password" id="facultyPassword" name="facultyPassword" required>
+                    <img src="eye.png" alt="Show Password" class="eye-icon" onclick="togglePassword('facultyPassword')">
+                </div>
             </div>
 
             <!-- Submit Button -->
